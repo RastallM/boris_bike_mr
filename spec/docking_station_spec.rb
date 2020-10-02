@@ -56,6 +56,18 @@ describe DockingStation do
             expect(docking_station.release_bike).to eq bike
         end
     end   
+
+    it "can have a maximum capacity set by user" do
+        docking_station = DockingStation.new(30)
+
+        expect(docking_station.capacity).to eq (30)
+    end
+
+    it "has a default capacity on initialize which = DEFAULT_CAPACITY" do
+        docking_station = DockingStation.new
+
+        expect(docking_station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
 end
 
 
