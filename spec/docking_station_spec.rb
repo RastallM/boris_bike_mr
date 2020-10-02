@@ -37,13 +37,13 @@ describe DockingStation do
 
         it 'docks upto its maximum capacity' do
             docking_station = DockingStation.new
-            20.times {docking_station.dock(Bike.new)}
-            expect(docking_station.bike_rack.count).to eq (20)
+            (DockingStation::DEFAULT_CAPACITY).times {docking_station.dock(Bike.new)}
+            expect(docking_station.bike_rack.count).to eq (DockingStation::DEFAULT_CAPACITY)
         end
 
         it "doesn't dock more bikes than capacity" do 
             docking_station = DockingStation.new
-            20.times {docking_station.dock(Bike.new)}
+            (DockingStation::DEFAULT_CAPACITY).times {docking_station.dock(Bike.new)}
             expect{ docking_station.dock(bike) }.to raise_error 'The station is full!'
         end
     end

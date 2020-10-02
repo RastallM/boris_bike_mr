@@ -1,5 +1,5 @@
 class DockingStation
-
+    DEFAULT_CAPACITY = 20
     attr_accessor :bike_rack
 
     def initialize
@@ -19,7 +19,7 @@ class DockingStation
     private
 
     def full?
-        return true if bike_rack.count == 20
+        return true if bike_rack.count == DEFAULT_CAPACITY
         false
     end
 end
